@@ -16,3 +16,45 @@ Simple definition
   Scalable (tiny MCUs → powerful servers)
   
   Large ecosystem support
+
+### Why ARM was created
+
+Early computers consumed too much power
+
+Embedded systems needed:
+
+Low heat
+
+Long battery life
+
+Cheap hardware
+
+## 2️⃣ RISC vs CISC (ARM vs x86)
+
+| Feature                | RISC (ARM) | CISC (x86) |
+| ---------------------- | ---------- | ---------- |
+| Instruction size       | Fixed      | Variable   |
+| Instruction complexity | Simple     | Complex    |
+| Cycles per instruction | Usually 1  | Multiple   |
+| Power usage            | Low        | High       |
+| Hardware complexity    | Simple     | Complex    |
+
+### ARM (RISC)
+
+Simple instructions
+
+More instructions per program
+
+Faster execution pipeline
+
+Lower power
+
+### x86 (CISC)
+
+Complex instructions
+
+Fewer instructions per program
+
+More decoding logic
+
+Higher power consumption
