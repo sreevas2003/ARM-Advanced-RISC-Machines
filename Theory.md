@@ -85,7 +85,7 @@ An ARM CPU internally has:
     - Memory Interface
 ```
 - ## Registers (Fastest Memory in CPU)
-🔹 What are registers?
+What are registers?
     - Small storage inside CPU
     - Used to hold data & addresses
     - Faster than RAM
