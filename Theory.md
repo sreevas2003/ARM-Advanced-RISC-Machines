@@ -56,3 +56,54 @@ Embedded systems needed:
     * Long battery life
     * Cheap hardware
 ```
+## ARM Core (CPU Core)
+```
+🔹 What is an ARM Core?
+    - The processing engine
+    - Executes instructions
+    - Designed by ARM
+    - Licensed to chip manufacturers
+🔹 Core Types
+| Core     | Purpose                |
+| -------- | ---------------------- |
+| Cortex-M | Microcontrollers       |
+| Cortex-R | Real-time safety       |
+| Cortex-A | Application processors |
+| Neoverse | Server / Cloud         |
+```
+# ARM Architecture
+- ## Core Building Blocks of an ARM CPU
+```
+An ARM CPU internally has:
+🔹 Main Components
+    - Registers
+    - ALU (Arithmetic Logic Unit)
+    - Control Unit
+    - Pipeline
+    - Load/Store Unit
+    - Interrupt & Exception Logic
+    - Memory Interface
+```
+- ## Registers (Fastest Memory in CPU)
+  🔹 What are registers?
+    - Small storage inside CPU
+    - Used to hold data & addresses
+    - Faster than RAM
+🔹 Common ARM Registers
+    - R0–R12 → General purpose
+    - SP (R13) → Stack Pointer
+    - LR (R14) → Link Register (return address)
+    - PC (R15) → Program Counter
+- ## Load–Store Architecture
+    - Only LOAD and STORE instructions access memory
+    - All calculations happen inside registers
+- ## Pipeline (How ARM Executes Fast)
+    🔹 What is a pipeline?
+        - Instruction execution is split into stages.
+    🔹 Typical ARM Pipeline
+    | Stage   | Action                      |
+    | ------- | --------------------------- |
+    | Fetch   | Get instruction from memory |
+    | Decode  | Understand instruction      |
+    | Execute | Perform operation           |
+📌 While one instruction executes, another is decoded → parallelism
