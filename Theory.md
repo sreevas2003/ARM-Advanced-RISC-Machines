@@ -139,6 +139,7 @@ Although not in R0–R15 list, these are critical:
     - Only LOAD and STORE instructions access memory
     - All calculations happen inside registers
 - ## Pipeline (How ARM Executes Fast)
+```
 What is a pipeline?
     - Instruction execution is split into stages.
 Typical ARM Pipeline
@@ -148,3 +149,4 @@ Typical ARM Pipeline
     | Decode  | Understand instruction      |
     | Execute | Perform operation           |
 📌 While one instruction executes, another is decoded → parallelism
+```
