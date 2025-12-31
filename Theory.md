@@ -77,7 +77,7 @@ Embedded systems needed:
 An ARM CPU internally has:
 🔹 Main Components
     - Registers
-    - ALU (Arithmetic Logic Unit)
+    - ALU (Arithmetic Logic Unit) 
     - Control Unit
     - Pipeline
     - Load/Store Unit
@@ -85,22 +85,51 @@ An ARM CPU internally has:
     - Memory Interface
 ```
 - ## Registers (Fastest Memory in CPU)
-  🔹 What are registers?
+🔹 What are registers?
     - Small storage inside CPU
     - Used to hold data & addresses
     - Faster than RAM
-🔹 Common ARM Registers
-    - R0–R12 → General purpose
-    - SP (R13) → Stack Pointer
-    - LR (R14) → Link Register (return address)
-    - PC (R15) → Program Counter
+| Register | Name            | Purpose                    |
+| -------- | --------------- | -------------------------- |
+| R0–R12   | General purpose | Data, variables, arguments |
+| R13      | SP              | Stack Pointer              |
+| R14      | LR              | Link Register              |
+| R15      | PC              | Program Counter            |
+**R0 – R12 (General Purpose Registers)**
+Used to store:
+    - Variables
+    - Function arguments
+    - Temporary values
+    - Addresses
+**R13 – Stack Pointer (SP)**
+Points to top of stack
+Stack stores:
+    - Local variables
+    - Return addresses
+    - Saved registers
+**R14 – Link Register (LR)**
+    - Stores return address of a function
+    - Set automatically on BL (Branch with Link)
+**R15 – Program Counter (PC)**
+Holds address of next instruction
+Auto-increments
+Changes on:
+    - Branch
+    - Interrupt
+    - Exception
+📌 CPU execution is driven entirely by Program Counter.
+**Special Registers (Related but Important)**
+Although not in R0–R15 list, these are critical:
+    - xPSR → Status flags (Zero, Carry, Negative)
+    - CONTROL → Privilege & stack select
+    - MSP / PSP → Main & Process stack pointers (Cortex-M)
 - ## Load–Store Architecture
     - Only LOAD and STORE instructions access memory
     - All calculations happen inside registers
 - ## Pipeline (How ARM Executes Fast)
-    🔹 What is a pipeline?
-        - Instruction execution is split into stages.
-    🔹 Typical ARM Pipeline
+🔹 What is a pipeline?
+    - Instruction execution is split into stages.
+🔹 Typical ARM Pipeline
     | Stage   | Action                      |
     | ------- | --------------------------- |
     | Fetch   | Get instruction from memory |
