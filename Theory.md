@@ -189,7 +189,6 @@ Each field means:
 ```
 ### Data Processing Instructions
 **Common instructions**
-```
 | Instruction | Meaning     |
 | ----------- | ----------- |
 | MOV         | Copy        |
@@ -201,6 +200,7 @@ Each field means:
 | CMP         | Compare     |
 | TST         | Test bits   |
 **Example**
+```
 Internal flow:
 - Read R1 & R2
 - ALU adds
@@ -226,8 +226,11 @@ Internal flow:
 | BL          | Function call         |
 | BX          | Return / state switch |
 ### Conditional Execution (ARM Superpower)
+
 <img width="861" height="325" alt="image" src="https://github.com/user-attachments/assets/cf603f91-ab16-4c50-9216-b2a77309d5a1" />
+
 **Condition Codes**
+
 | Code | Meaning       |
 | ---- | ------------- |
 | EQ   | Equal         |
