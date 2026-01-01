@@ -248,21 +248,25 @@ Internal flow:
 
 # ARM Cortex Families
 ## 1.Cortex-M (Microcontrollers)
+
 🔹 **What it is**
 - MCU-class cores for embedded control
 - Designed for deterministic real-time
 - Very low power and low cost
+
 🔹 **Key Technical Traits**
 - Thumb/Thumb-2 only
 - No MMU (MPU optional)
 - NVIC for fast interrupts
 - Simple pipeline (predictable timing)
+
 🔹 **Typical Cores**
 - M0/M0+ (ultra-low power)
 - M3 (control)
 - M4 (DSP + optional FPU)
 - M7 (high-performance MCU)
 - M33/M55 (security, AI)
+
 🔹 **Use When**
 - Sensors, motor control, IoT
 - Deterministic timing matters
@@ -273,15 +277,18 @@ Internal flow:
 🔹 **What it is**
 - Hard real-time processors
 - Built for safety-critical systems
+
 🔹 **Key Technical Traits**
 - MPU (no MMU) → predictable latency
 - Lockstep cores (fault detection)
 - Tightly coupled memory (TCM)
 - Deterministic interrupts
+
 🔹 **Typical Cores**
 - R4, R5
 - R7
 - R52 (automotive safety)
+
 🔹 **Use When**
 - Automotive braking (ABS)
 - Airbags
@@ -293,15 +300,18 @@ Internal flow:
 🔹 **What it is**
 - High-performance application CPUs
 - Designed to run full OS
+  
 🔹 **Key Technical Traits**
 - MMU present
 - Virtual memory
 - Multicore & big caches
 - Out-of-order execution (high performance)
+
 🔹 **Typical Cores**
 - A53, A55 (efficient)
 - A72, A76, A78 (performance)
 - Cortex-X series (max performance)
+
 🔹 **Use When**
 - Smartphones
 - SBCs (Raspberry Pi)
