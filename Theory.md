@@ -494,19 +494,33 @@ Any abnormal or asynchronous event:
 Before main() runs, C code cannot work unless memory is prepared
 
 Power ON / Reset
+  
    ↓
+   
 Vector Table
+   
    ↓
+   
 Startup Assembly
+   
    ↓
+   
 Stack Init
+   
    ↓
+   
 .data copy (Flash → SRAM)
+   
    ↓
+   
 .bss zero init
+   
    ↓
+   
 SystemInit()
+   
    ↓
+   
 main()
 
 ## 1️⃣ Startup Assembly (startup.s)
