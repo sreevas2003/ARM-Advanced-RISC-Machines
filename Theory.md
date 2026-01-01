@@ -404,10 +404,15 @@ A table of addresses used during:
 🔹 What happens on reset?
 
 1️⃣ CPU reads **Main Stack Pointer**(MSP) value from vector table
+
 2️⃣ MSP is loaded into Stack Pointer
+
 3️⃣ CPU reads **Reset_Handler address**
+
 4️⃣ Jumps to Reset_Handler
+
 5️⃣ Startup code executes
+
 6️⃣ main() is called
 
 🔹 Startup Code Responsibilities
@@ -431,6 +436,7 @@ A table of addresses used during:
 - Zero-latency response
 
 🔹 Interrupt Flow
+
 Event occurs
    ↓
 NVIC checks priority
