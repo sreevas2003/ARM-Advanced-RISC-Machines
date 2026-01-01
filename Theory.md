@@ -22,7 +22,7 @@ Instruction Type
         └── AMD
 ```
 ## RISC vs CISC (ARM vs x86)
-```
+
 | Feature                | RISC (ARM)                | CISC (x86)   |
 | ---------------------- | ------------------------- | ------------ |
 | Instruction size       | Fixed                     | Variable     |
@@ -31,8 +31,6 @@ Instruction Type
 | Hardware complexity    | Simple                    | Complex      |
 | Used in                | MCU, Mobile, IoT, Servers | PCs, Laptops |
 | Example                | ARM Cortex                | Intel / AMD  |
-
-```
 
 ## 1️⃣ What is ARM Architecture?
 ```
@@ -64,13 +62,15 @@ Embedded systems needed:
     - Designed by ARM
     - Licensed to chip manufacturers
 🔹 Core Types
+```
+
 | Core     | Purpose                |
 | -------- | ---------------------- |
 | Cortex-M | Microcontrollers       |
 | Cortex-R | Real-time safety       |
 | Cortex-A | Application processors |
 | Neoverse | Server / Cloud         |
-```
+
 # ARM Architecture
 - ## Core Building Blocks of an ARM CPU
 ```
@@ -89,14 +89,14 @@ What are registers?
     - Small storage inside CPU
     - Used to hold data & addresses
     - Faster than RAM
-```
+
 | Register | Name            | Purpose                    |
 | -------- | --------------- | -------------------------- |
 | R0–R12   | General purpose | Data, variables, arguments |
 | R13      | SP              | Stack Pointer              |
 | R14      | LR              | Link Register              |
 | R15      | PC              | Program Counter            |
-```
+
 **R0 – R12 (General Purpose Registers)**
 ```
 Used to store:
@@ -139,17 +139,19 @@ Although not in R0–R15 list, these are critical:
     - Only LOAD and STORE instructions access memory
     - All calculations happen inside registers
 - ## Pipeline (How ARM Executes Fast)
-```
+
 What is a pipeline?
     - Instruction execution is split into stages.
 Typical ARM Pipeline
+
     | Stage   | Action                      |
     | ------- | --------------------------- |
     | Fetch   | Get instruction from memory |
     | Decode  | Understand instruction      |
     | Execute | Perform operation           |
+    
 📌 While one instruction executes, another is decoded → parallelism
-```
+
 # ARM Instruction Set
 ### What is the ARM instruction set?
 ```
@@ -178,15 +180,16 @@ Each field means:
 - Thumb = smaller instructions, better for embedded systems
 ```
 **Thumb vs Thumb-2**
-```
+
 | Feature          | Thumb    | Thumb-2      |
 | ---------------- | -------- | ------------ |
 | Instruction size | 16-bit   | 16 + 32 bit  |
 | Performance      | Medium   | Near ARM     |
 | Code size        | Small    | Small        |
 | Used in          | Cortex-M | Cortex-M / A |
+
 📌 Cortex-M runs ONLY Thumb/Thumb-2
-```
+
 ### Data Processing Instructions
 **Common instructions**
 | Instruction | Meaning     |
