@@ -1,5 +1,5 @@
 ## CPU Instruction Types
-```
+
 All processors are broadly classified into two instruction design philosophies:
 🔹 RISC - Reduced Instruction Set Computer
 🔹 CISC - Complex Instruction Set Computer
@@ -20,7 +20,7 @@ Instruction Type
     └── x86
         ├── Intel
         └── AMD
-```
+
 ## RISC vs CISC (ARM vs x86)
 
 | Feature                | RISC (ARM)                | CISC (x86)   |
