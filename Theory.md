@@ -438,13 +438,21 @@ A table of addresses used during:
 🔹 Interrupt Flow
 
 Event occurs
+
    ↓
+
 NVIC checks priority
+
    ↓
+
 Context auto-saved
+
    ↓
+
 ISR executed
+
    ↓
+
 Context restored
 
 ## 6️⃣ SysTick Timer
