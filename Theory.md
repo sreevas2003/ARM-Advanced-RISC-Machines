@@ -199,6 +199,7 @@ Each field means:
 | EOR         | XOR         |
 | CMP         | Compare     |
 | TST         | Test bits   |
+
 **Example**
 ```
 Internal flow:
@@ -212,6 +213,7 @@ Internal flow:
 <img width="262" height="208" alt="image" src="https://github.com/user-attachments/assets/0be65abd-1407-4669-bedc-aa18371e7d6c" />
 
 * ARM never operates directly on memory
+
 | Instruction | Meaning                 |
 | ----------- | ----------------------- |
 | LDR         | Load memory → register  |
