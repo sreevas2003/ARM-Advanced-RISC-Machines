@@ -208,28 +208,26 @@ Internal flow:
 - Flags updated (optional)
 ```
 ### Load / Store Instructions
+
 <img width="262" height="208" alt="image" src="https://github.com/user-attachments/assets/0be65abd-1407-4669-bedc-aa18371e7d6c" />
+
 * ARM never operates directly on memory
-```
 | Instruction | Meaning                 |
 | ----------- | ----------------------- |
 | LDR         | Load memory → register  |
 | STR         | Store register → memory |
 | LDM         | Load multiple           |
 | STM         | Store multiple          |
-```
+
 ### Branch Instructions
-```
 | Instruction | Use                   |
 | ----------- | --------------------- |
 | B           | Jump                  |
 | BL          | Function call         |
 | BX          | Return / state switch |
-```
 ### Conditional Execution (ARM Superpower)
 <img width="861" height="325" alt="image" src="https://github.com/user-attachments/assets/cf603f91-ab16-4c50-9216-b2a77309d5a1" />
 **Condition Codes**
-```
 | Code | Meaning       |
 | ---- | ------------- |
 | EQ   | Equal         |
@@ -239,5 +237,5 @@ Internal flow:
 | GE   | Greater/equal |
 | LE   | Less/equal    |
 | AL   | Always        |
-```
+
 
