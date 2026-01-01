@@ -560,5 +560,83 @@ How it works:
 | Stack     | SRAM      | Function calls      |
 
 ------------------------------------------------------------------
+# ARM Bare-Metal Programming
+
+**Bare-metal = CPU runs your code directly after reset, no operating system in between**
+
+## 1️⃣ GPIO Programming (Digital I/O)
+🔹 What is GPIO?
+- Pins controlled by software
+- Used for LED, button, relay, sensors
+
+🔹 GPIO at Register Level
+
+Typical GPIO registers:
+- MODE (input/output)
+- ODR (output data)
+- IDR (input data)
+
+🔹 Internal Flow
+
+CPU → Bus → GPIO Register → Physical Pin
+
+## 2️⃣ Timer Programming
+
+🔹 Why timers?
+- Delays
+- Periodic events
+- PWM
+- Time measurement
+
+🔹 Timer Registers (Typical)
+- PSC → Prescaler
+- ARR → Auto reload
+- CNT → Counter
+- CR → Control register
+
+🔹 Timer Flow
+
+Clock → Prescaler → Counter → Event/Interrupt
+
+🔹 Example Use
+- LED blink every 1 second
+- Measure pulse width
+- Generate periodic interrupt
+
+## 3️⃣ Interrupt Handling
+**Interrupt = hardware event that temporarily stops normal code and runs a special function (ISR)**
+
+1️⃣ What Is an Interrupt?
+
+An interrupt is an asynchronous hardware signal that demands immediate CPU attention.
+Common interrupt sources
+- GPIO button press
+- Timer overflow
+- UART data received
+- ADC conversion complete
+- DMA transfer done
+
+🔹 Interrupt Steps (Pin-to-Pin)
+
+Event occurs
+ ↓
+Peripheral sets interrupt flag
+ ↓
+NVIC checks priority
+ ↓
+CPU saves context (hardware)
+ ↓
+ISR executes
+ ↓
+Context restored
+
+
+## 4️⃣ Register-Level Coding (Core Skill)
+🔹 What is Register-Level Coding?
+
+Accessing peripherals via memory-mapped registers.
+
+## Polling vs Interrupts
+<img width="849" height="366" alt="image" src="https://github.com/user-attachments/assets/b1856e15-c235-44df-80b9-8ad5f7ef397e" />
 
 
