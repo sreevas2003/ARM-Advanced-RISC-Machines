@@ -246,4 +246,94 @@ Internal flow:
 | LE   | Less/equal    |
 | AL   | Always        |
 
+# ARM Cortex Families
+## 1.Cortex-M (Microcontrollers)
+🔹 **What it is**
+- MCU-class cores for embedded control
+- Designed for deterministic real-time
+- Very low power and low cost
+🔹 **Key Technical Traits**
+- Thumb/Thumb-2 only
+- No MMU (MPU optional)
+- NVIC for fast interrupts
+- Simple pipeline (predictable timing)
+🔹 **Typical Cores**
+- M0/M0+ (ultra-low power)
+- M3 (control)
+- M4 (DSP + optional FPU)
+- M7 (high-performance MCU)
+- M33/M55 (security, AI)
+🔹 **Use When**
+- Sensors, motor control, IoT
+- Deterministic timing matters
+- Battery-powered devices
 
+## 2.Cortex-R (Real-Time Systems)
+
+🔹 **What it is**
+- Hard real-time processors
+- Built for safety-critical systems
+🔹 **Key Technical Traits**
+- MPU (no MMU) → predictable latency
+- Lockstep cores (fault detection)
+- Tightly coupled memory (TCM)
+- Deterministic interrupts
+🔹 **Typical Cores**
+- R4, R5
+- R7
+- R52 (automotive safety)
+🔹 **Use When**
+- Automotive braking (ABS)
+- Airbags
+- Industrial safety controllers
+- HDD/SSD controllers
+
+## 3.Cortex-A (Application Processors)
+
+🔹 **What it is**
+- High-performance application CPUs
+- Designed to run full OS
+🔹 **Key Technical Traits**
+- MMU present
+- Virtual memory
+- Multicore & big caches
+- Out-of-order execution (high performance)
+🔹 **Typical Cores**
+- A53, A55 (efficient)
+- A72, A76, A78 (performance)
+- Cortex-X series (max performance)
+🔹 **Use When**
+- Smartphones
+- SBCs (Raspberry Pi)
+- Automotive infotainment
+- Networking equipment
+
+# Differences Between Cortex-M, R, A (Must-Remember)
+
+<img width="2560" height="2110" alt="image" src="https://github.com/user-attachments/assets/02818a4f-d622-475c-b7cb-1f3ee483e449" />
+
+| Feature   | Cortex-M | Cortex-R    | Cortex-A      |
+| --------- | -------- | ----------- | ------------- |
+| Target    | MCU      | Safety RT   | Apps          |
+| Power     | Very low | Low         | Medium–High   |
+| MMU       | ❌       | ❌         | ✅            |
+| MPU       | Optional | ✅          | ❌           |
+| OS        | RTOS     | Safety RTOS | Linux/Android |
+| Real-time | Soft     | **Hard**    | Weak          |
+| Cost      | Low      | Medium      | High          |
+
+# Harvard vs Von Neumann (Memory Architecture)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f7ee3cb-b5d8-452d-a0de-b2d1c3c93762" />
+
+| Feature                | **Harvard Architecture**          | **Von Neumann Architecture** |
+| ---------------------- | --------------------------------- | ---------------------------- |
+| Memory for code & data | Separate                          | Single (shared)              |
+| Buses                  | Separate instruction & data buses | Single shared bus            |
+| Parallel access        | ✅ Yes (fetch + data together)     | ❌ No (one at a time)         |
+| Performance            | Faster, deterministic             | Slower due to bottleneck     |
+| Predictability         | High (good for real-time)         | Lower                        |
+| Hardware complexity    | Higher                            | Simpler                      |
+| Cost                   | Higher                            | Lower                        |
+| Typical ARM use        | Cortex-M, Cortex-R                | Cortex-A (logical model)     |
+| Best for               | Embedded, RT systems              | General-purpose computing    |
