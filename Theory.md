@@ -1,5 +1,5 @@
 ## CPU Instruction Types
-
+```
 All processors are broadly classified into two instruction design philosophies:
 🔹 RISC - Reduced Instruction Set Computer
 🔹 CISC - Complex Instruction Set Computer
@@ -20,7 +20,7 @@ Instruction Type
     └── x86
         ├── Intel
         └── AMD
-
+```
 ## RISC vs CISC (ARM vs x86)
 
 | Feature                | RISC (ARM)                | CISC (x86)   |
@@ -347,3 +347,127 @@ Internal flow:
 | Cost                   | Higher                            | Lower                        |
 | Typical ARM use        | Cortex-M, Cortex-R                | Cortex-A (logical model)     |
 | Best for               | Embedded, RT systems              | General-purpose computing    |
+
+# Cortex-M Deep Dive
+## 1️⃣ Cortex-M Memory Map
+
+<img width="658" height="515" alt="image" src="https://github.com/user-attachments/assets/744f6ad2-7092-460c-83f6-4900f2ffdb9a" />
+
+🔹 Fixed 4-GB Address Space
+
+Cortex-M uses a predefined memory layout.
+
+| Address Range | Region      | Purpose            |
+| ------------- | ----------- | ------------------ |
+| 0x0000_0000   | Code        | Flash / ROM        |
+| 0x2000_0000   | SRAM        | Data, stack, heap  |
+| 0x4000_0000   | Peripherals | GPIO, UART, timers |
+| 0xE000_0000   | System      | NVIC, SysTick, SCB |
+
+
+📌 This layout is common across all Cortex-M MCUs → portability.
+## 2️⃣ Flash vs SRAM
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/ccdcbc8c-3ce1-415a-9573-a2923e02ae64" />
+
+🔹 Flash (Non-volatile)
+- Stores program code
+- Retains data after power-off
+- Slower access
+- Limited write cycles
+
+Used for:
+- .text (code)
+- Vector table
+- Constants
+
+🔹 SRAM (Volatile)
+- Fast read/write
+- Data lost on power-off
+
+Used for:
+- Stack
+- Heap
+- Global & local variables
+- RTOS task stacks
+📌 Code runs from Flash, data lives in SRAM
+
+## 3️⃣ Vector Table (Heart of Cortex-M)
+
+🔹 What is the Vector Table?
+A table of addresses used during:
+- Reset
+- Interrupts
+- Exceptions
+
+## 4️⃣ Reset Sequence (Step-by-Step)
+
+🔹 What happens on reset?
+
+1️⃣ CPU reads **Main Stack Pointer**(MSP) value from vector table
+2️⃣ MSP is loaded into Stack Pointer
+3️⃣ CPU reads **Reset_Handler address**
+4️⃣ Jumps to Reset_Handler
+5️⃣ Startup code executes
+6️⃣ main() is called
+
+🔹 Startup Code Responsibilities
+- Initialize stack
+- Copy .data (Flash → SRAM)
+- Zero .bss
+- Setup clock
+- Call main()
+
+📌 This is why startup.s is critical
+## 5️⃣ NVIC (Nested Vectored Interrupt Controller)
+
+🔹 What NVIC Does
+- Manages all interrupts
+- Handles priority & nesting
+
+🔹 Key Features
+- Priority-based interrupts
+- Nested interrupts supported
+- Hardware stacking (fast ISR entry)
+- Zero-latency response
+
+🔹 Interrupt Flow
+Event occurs
+   ↓
+NVIC checks priority
+   ↓
+Context auto-saved
+   ↓
+ISR executed
+   ↓
+Context restored
+
+## 6️⃣ SysTick Timer
+🔹 What is SysTick?
+- Built-in 24-bit timer
+- Part of Cortex-M core
+
+🔹 Uses
+- OS tick (RTOS)
+- Periodic interrupts
+- Time slicing
+
+🔹 Typical Configuration
+- Clock source
+- Reload value
+- Interrupt enable
+
+📌 In RTOS, SysTick drives scheduling
+## 7️⃣ Exception Handling (Automatic & Fast)
+🔹 What is an Exception?
+Any abnormal or asynchronous event:
+- Reset
+- Faults
+- Interrupts
+- SysTick
+
+🔹 Automatic Context Save
+🔹 Return from Exception
+- Special **EXC_RETURN** value in LR
+- Hardware restores context
+- Execution resumes
+  
