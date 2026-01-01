@@ -150,3 +150,84 @@ Typical ARM Pipeline
     | Execute | Perform operation           |
 📌 While one instruction executes, another is decoded → parallelism
 ```
+# ARM Instruction Set
+### What is the ARM instruction set?
+```
+It is the set of machine instructions that an ARM CPU understands and executes.
+ARM instructions are:
+- RISC-based
+- Mostly 32-bit (ARM) or 16/32-bit (Thumb)
+- Load–Store architecture
+```
+### ARM Instruction Format (32-bit ARM)
+
+<img width="565" height="244" alt="image" src="https://github.com/user-attachments/assets/22e62b7e-f7a3-4bef-a5a5-6c01e41d20fe" />
+```
+Each field means:
+- Cond → Condition to execute
+- Opcode → Operation (ADD, SUB, MOV…)
+- Rd → Destination register
+- Rn → Source register
+- Operand2 → Immediate or register
+📌 Every ARM instruction can be conditional (very powerful).
+```
+### Thumb & Thumb-2
+**Why Thumb exists**
+```
+- ARM 32-bit instructions = fast but large code size
+- Thumb = smaller instructions, better for embedded systems
+```
+**Thumb vs Thumb-2**
+| Feature          | Thumb    | Thumb-2      |
+| ---------------- | -------- | ------------ |
+| Instruction size | 16-bit   | 16 + 32 bit  |
+| Performance      | Medium   | Near ARM     |
+| Code size        | Small    | Small        |
+| Used in          | Cortex-M | Cortex-M / A |
+📌 Cortex-M runs ONLY Thumb/Thumb-2
+### Data Processing Instructions
+**Common instructions**
+| Instruction | Meaning     |
+| ----------- | ----------- |
+| MOV         | Copy        |
+| ADD         | Addition    |
+| SUB         | Subtraction |
+| AND         | Logical AND |
+| ORR         | Logical OR  |
+| EOR         | XOR         |
+| CMP         | Compare     |
+| TST         | Test bits   |
+**Example**
+Internal flow:
+- Read R1 & R2
+- ALU adds
+- Result → R0
+- Flags updated (optional)
+### Load / Store Instructions
+<img width="262" height="208" alt="image" src="https://github.com/user-attachments/assets/0be65abd-1407-4669-bedc-aa18371e7d6c" />
+* ARM never operates directly on memory
+| Instruction | Meaning                 |
+| ----------- | ----------------------- |
+| LDR         | Load memory → register  |
+| STR         | Store register → memory |
+| LDM         | Load multiple           |
+| STM         | Store multiple          |
+### Branch Instructions
+| Instruction | Use                   |
+| ----------- | --------------------- |
+| B           | Jump                  |
+| BL          | Function call         |
+| BX          | Return / state switch |
+### Conditional Execution (ARM Superpower)
+<img width="861" height="325" alt="image" src="https://github.com/user-attachments/assets/cf603f91-ab16-4c50-9216-b2a77309d5a1" />
+**Condition Codes**
+| Code | Meaning       |
+| ---- | ------------- |
+| EQ   | Equal         |
+| NE   | Not equal     |
+| GT   | Greater       |
+| LT   | Less          |
+| GE   | Greater/equal |
+| LE   | Less/equal    |
+| AL   | Always        |
+
