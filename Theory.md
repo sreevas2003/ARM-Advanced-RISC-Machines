@@ -442,19 +442,19 @@ A table of addresses used during:
 
 Event occurs
 
-   ↓
+       ↓
 
 NVIC checks priority
 
-   ↓
+       ↓
 
 Context auto-saved
 
-   ↓
+       ↓
 
 ISR executed
 
-   ↓
+       ↓
 
 Context restored
 
@@ -619,15 +619,25 @@ Common interrupt sources
 🔹 Interrupt Steps (Pin-to-Pin)
 
 Event occurs
- ↓
+ 
+     ↓
+
 Peripheral sets interrupt flag
- ↓
+     
+     ↓
+     
 NVIC checks priority
- ↓
+    
+     ↓
+     
 CPU saves context (hardware)
- ↓
+
+     ↓
+     
 ISR executes
- ↓
+
+     ↓
+ 
 Context restored
 
 
