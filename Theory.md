@@ -152,6 +152,7 @@ Typical ARM Pipeline
     
 📌 While one instruction executes, another is decoded → parallelism
 
+--------------------------------------------------------------------------------------------------------
 # ARM Instruction Set
 ### What is the ARM instruction set?
 ```
@@ -246,6 +247,7 @@ Internal flow:
 | LE   | Less/equal    |
 | AL   | Always        |
 
+---------------------------------------------------------------------------------------------------
 # ARM Cortex Families
 ## 1.Cortex-M (Microcontrollers)
 
@@ -348,6 +350,7 @@ Internal flow:
 | Typical ARM use        | Cortex-M, Cortex-R                | Cortex-A (logical model)     |
 | Best for               | Embedded, RT systems              | General-purpose computing    |
 
+-------------------------------------------------------------------------------------------------
 # Cortex-M Deep Dive
 ## 1️⃣ Cortex-M Memory Map
 
@@ -480,8 +483,82 @@ Any abnormal or asynchronous event:
 - SysTick
 
 🔹 Automatic Context Save
+
 🔹 Return from Exception
 - Special **EXC_RETURN** value in LR
 - Hardware restores context
 - Execution resumes
-  
+------------------------------------------------------------------
+
+# ARM Startup & Linker
+Before main() runs, C code cannot work unless memory is prepared
+
+Power ON / Reset
+   ↓
+Vector Table
+   ↓
+Startup Assembly
+   ↓
+Stack Init
+   ↓
+.data copy (Flash → SRAM)
+   ↓
+.bss zero init
+   ↓
+SystemInit()
+   ↓
+main()
+
+## 1️⃣ Startup Assembly (startup.s)
+🔹 What is Startup Assembly?
+- First code executed after reset
+- Written in assembly
+- Hardware-level initialization
+
+📌 C cannot run yet because stack & RAM are not ready.
+
+🔹 Startup Assembly Contains
+- Vector table
+- Reset_Handler
+- Default interrupt handlers
+- Stack pointer definition
+
+## 2️⃣ Stack Initialization
+
+🔹 Why stack init is required
+- Function calls
+- Local variables
+- Interrupt context saving
+
+🔹 How it works
+- First word of vector table = initial stack address
+- CPU loads it automatically into MSP
+
+📌 Stack grows downward in SRAM.
+
+## 3️⃣ Data & BSS Initialization
+
+**🔹 .data Section (Initialized globals)**
+How it works:
+- Initial value stored in Flash
+- Copied to SRAM at startup
+
+**🔹 .bss Section (Uninitialized globals)**
+How it works:
+- Located in SRAM
+- Set to zero during startup
+
+## 4 Memory Sections (Very Important)
+
+| Section   | Stored In | Purpose             |
+| --------- | --------- | ------------------- |
+| `.text`   | Flash     | Program code        |
+| `.rodata` | Flash     | Constants           |
+| `.data`   | SRAM      | Initialized globals |
+| `.bss`    | SRAM      | Zero globals        |
+| Heap      | SRAM      | `malloc()`          |
+| Stack     | SRAM      | Function calls      |
+
+------------------------------------------------------------------
+
+
